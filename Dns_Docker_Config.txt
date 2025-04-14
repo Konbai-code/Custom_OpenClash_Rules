@@ -1,0 +1,23 @@
+docker run -d \
+--name adguardhome \
+--restart unless-stopped \
+-v /root/adguardhome/workdir:/opt/adguardhome/work \
+-v /root/adguardhome/confdir:/opt/adguardhome/conf \
+-p 53:53/tcp \
+-p 53:53/udp \
+-p 80:80/tcp \
+-p 3000:3000/tcp \
+-d adguard/adguardhome:latest
+
+
+docker run -d \
+--name paopaodns \
+-v /root/paopao:/data \
+-e CNAUTO=yes \
+-e IPV6=yes_only6 \
+-e SOCKS5=no \
+-e UPDATE=daily \
+-p 54:53/tcp \
+-p 54:53/udp \
+--restart always \
+public.ecr.aws/sliamb/paopaodns:latest
