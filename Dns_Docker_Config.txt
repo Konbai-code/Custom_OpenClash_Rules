@@ -14,6 +14,7 @@ docker run -d \
 --name paopaodns \
 -v /root/paopao:/data \
 -e CNAUTO=yes \
+-e CNFALL=no \
 -e IPV6=yes_only6 \
 -e UPDATE=daily \
 -p 54:53/tcp \
