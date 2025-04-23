@@ -12,15 +12,13 @@ docker run -d \
 
 docker run -d \
 --name paopaodns \
+--restart unless-stopped \
 -v /root/paopao:/data \
--e CNAUTO=yes \
--e CNFALL=no \
 -e IPV6=yes_only6 \
--e AUTO_FORWARD=yes \
+-e USE_MARK_DATA=yes \
 -e AUTO_FORWARD_CHECK=yes \
 -e CUSTOM_FORWARD=10.10.10.1:1053 \
 -e UPDATE=daily \
 -p 54:53/tcp \
 -p 54:53/udp \
---restart always \
 public.ecr.aws/sliamb/paopaodns:latest
