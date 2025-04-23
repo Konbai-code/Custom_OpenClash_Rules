@@ -15,6 +15,7 @@ docker run -d \
 --restart unless-stopped \
 -v /root/paopao:/data \
 -e IPV6=yes_only6 \
+-e AUTO_FORWARD=yes \
 -e CUSTOM_FORWARD=10.10.10.1:1053 \
 -e UPDATE=daily \
 -p 54:53/tcp \
