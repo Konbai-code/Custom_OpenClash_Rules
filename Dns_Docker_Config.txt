@@ -17,6 +17,7 @@ docker run -d \
 -e IPV6=yes_only6 \
 -e AUTO_FORWARD=yes \
 -e CUSTOM_FORWARD=10.10.10.1:1053 \
+-e DNS_SERVERNAME=PaoPaoDNS \
 -e UPDATE=daily \
 -p 54:53/tcp \
 -p 54:53/udp \
