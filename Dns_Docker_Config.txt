@@ -19,3 +19,17 @@ docker run -d \
 -p 54:53/tcp \
 -p 54:53/udp \
 public.ecr.aws/sliamb/paopaodns:latest
+
+
+docker run -d \
+--name paopaodns \
+--restart unless-stopped \
+-v /root/paopao:/data \
+-e IPV6=yes_only6 \
+-e SOCKS5=10.10.10.1:1050 \
+-e AUTO_FORWARD=yes \
+-e CUSTOM_FORWARD=10.10.10.1:1053 \
+-e DNS_SERVERNAME=PaoPaoDNS \
+-e UPDATE=daily \
+--network host \
+your_custom_paopaodns
