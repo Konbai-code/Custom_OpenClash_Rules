@@ -3,10 +3,7 @@ docker run -d \
 --restart unless-stopped \
 -v /root/adguardhome/workdir:/opt/adguardhome/work \
 -v /root/adguardhome/confdir:/opt/adguardhome/conf \
--p 53:53/tcp \
--p 53:53/udp \
--p 80:80/tcp \
--p 3000:3000/tcp \
+--network host \
 -d adguard/adguardhome:latest
 
 
